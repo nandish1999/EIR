@@ -1,0 +1,151 @@
+{
+  "within_planet_fidelity": {
+    "0": {
+      "n": 2243,
+      "mean": 1.0,
+      "min": 1.0,
+      "zero_count": 0
+    },
+    "1": {
+      "n": 4656,
+      "mean": 1.0,
+      "min": 1.0,
+      "zero_count": 0
+    },
+    "2": {
+      "n": 4765,
+      "mean": 1.0,
+      "min": 1.0,
+      "zero_count": 0
+    },
+    "3": {
+      "n": 2370,
+      "mean": 1.0,
+      "min": 1.0,
+      "zero_count": 0
+    }
+  },
+  "global_fidelity": {
+    "n_images": 14034,
+    "knn_k5": {
+      "mean": 0.948,
+      "median": 1.0,
+      "min": 0.0,
+      "zero_count": 131,
+      "zero_pct": 0.93
+    },
+    "knn_k10": {
+      "mean": 0.9458,
+      "median": 1.0,
+      "min": 0.0,
+      "zero_count": 66,
+      "zero_pct": 0.47
+    },
+    "cross_leaf_k5": {
+      "before": 75.24,
+      "after": 76.23,
+      "delta": 0.99
+    },
+    "cross_leaf_k10": {
+      "before": 78.44,
+      "after": 79.24,
+      "delta": 0.8
+    },
+    "cross_planet_k5": {
+      "before": 0.21,
+      "after": 5.09,
+      "delta": 4.89
+    },
+    "cross_planet_k10": {
+      "before": 0.2,
+      "after": 5.34,
+      "delta": 5.14
+    },
+    "cross_planet_affected": 1646,
+    "cross_planet_affected_pct": 11.7
+  },
+  "overlap_before": {
+    "overlap_pairs": 1302,
+    "total_pairs": 21104,
+    "rate": 6.169,
+    "worst_pen": 2.742,
+    "capped": 0,
+    "evaluated": 1479,
+    "by_depth": {
+      "0": {
+        "ov": 1262,
+        "tot": 20547
+      },
+      "1": {
+        "ov": 32,
+        "tot": 296
+      },
+      "2": {
+        "ov": 4,
+        "tot": 145
+      },
+      "3": {
+        "ov": 4,
+        "tot": 67
+      },
+      "4": {
+        "ov": 0,
+        "tot": 29
+      },
+      "5": {
+        "ov": 0,
+        "tot": 14
+      },
+      "6": {
+        "ov": 0,
+        "tot": 4
+      },
+      "7": {
+        "ov": 0,
+        "tot": 2
+      }
+    }
+  },
+  "overlap_after": {
+    "overlap_pairs": 79,
+    "total_pairs": 21104,
+    "rate": 0.374,
+    "worst_pen": 0.43,
+    "capped": 629,
+    "evaluated": 1479,
+    "by_depth": {
+      "0": {
+        "ov": 77,
+        "tot": 20547
+      },
+      "1": {
+        "ov": 0,
+        "tot": 296
+      },
+      "2": {
+        "ov": 0,
+        "tot": 145
+      },
+      "3": {
+        "ov": 2,
+        "tot": 67
+      },
+      "4": {
+        "ov": 0,
+        "tot": 29
+      },
+      "5": {
+        "ov": 0,
+        "tot": 14
+      },
+      "6": {
+        "ov": 0,
+        "tot": 4
+      },
+      "7": {
+        "ov": 0,
+        "tot": 2
+      }
+    }
+  }
+}

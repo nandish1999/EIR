@@ -1,0 +1,19 @@
+# Ignore all Markdown and text files
+*.md
+*.txt
+
+# Ignore temp / unwanted folders
+temp (29.03.2026)/
+temp (15.04.2026)/
+untitled folder/
+Landscape dataset images/
+
+
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/

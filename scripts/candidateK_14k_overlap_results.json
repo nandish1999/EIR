@@ -1,0 +1,100 @@
+{
+  "evaluation": "Candidate K 14K Node Overlap - Phase 2",
+  "csv": "/Users/acharnandish/Documents/ButterflyClusterViz/Assets/StreamingAssets/Data/unity_pruned_density_tree_3d_colors.csv",
+  "parameters": {
+    "positionScale": 1.0,
+    "planetScale": 5.0,
+    "radiusScale": 0.3,
+    "minRadius": 0.3,
+    "depthRadiusFactor": 0.65,
+    "minEffectiveRadius": 0.1,
+    "defaultCapFactor": 0.6
+  },
+  "position_preservation": {
+    "nodes_checked": 1497,
+    "max_displacement": 0.0,
+    "positions_identical": true
+  },
+  "before": {
+    "cap_factor": 0.0,
+    "total_overlap_pairs": 1302,
+    "total_pairs": 21104,
+    "overlap_rate_pct": 6.169,
+    "worst_penetration": 2.742
+  },
+  "after": {
+    "cap_factor": 0.6,
+    "total_overlap_pairs": 79,
+    "total_pairs": 21104,
+    "overlap_rate_pct": 0.374,
+    "worst_penetration": 0.43,
+    "nodes_capped": 629,
+    "nodes_capped_pct": 42.5,
+    "avg_cap_ratio": 0.4656,
+    "min_cap_ratio": 0.1588
+  },
+  "reduction_pct": 93.9,
+  "sensitivity": [
+    {
+      "cap_factor": 0.0,
+      "overlap_pairs": 1302,
+      "overlap_rate_pct": 6.169,
+      "total_pairs": 21104,
+      "nodes_capped": 0,
+      "nodes_capped_pct": 0.0,
+      "avg_cap_ratio": 1.0,
+      "worst_penetration": 2.742
+    },
+    {
+      "cap_factor": 0.4,
+      "overlap_pairs": 32,
+      "overlap_rate_pct": 0.152,
+      "total_pairs": 21104,
+      "nodes_capped": 830,
+      "nodes_capped_pct": 56.1,
+      "avg_cap_ratio": 0.4375,
+      "worst_penetration": 0.223
+    },
+    {
+      "cap_factor": 0.6,
+      "overlap_pairs": 79,
+      "overlap_rate_pct": 0.374,
+      "total_pairs": 21104,
+      "nodes_capped": 629,
+      "nodes_capped_pct": 42.5,
+      "avg_cap_ratio": 0.4656,
+      "worst_penetration": 0.43
+    },
+    {
+      "cap_factor": 0.8,
+      "overlap_pairs": 160,
+      "overlap_rate_pct": 0.758,
+      "total_pairs": 21104,
+      "nodes_capped": 519,
+      "nodes_capped_pct": 35.1,
+      "avg_cap_ratio": 0.5005,
+      "worst_penetration": 0.637
+    },
+    {
+      "cap_factor": 1.0,
+      "overlap_pairs": 280,
+      "overlap_rate_pct": 1.327,
+      "total_pairs": 21104,
+      "nodes_capped": 452,
+      "nodes_capped_pct": 30.6,
+      "avg_cap_ratio": 0.5497,
+      "worst_penetration": 0.844
+    },
+    {
+      "cap_factor": 1.5,
+      "overlap_pairs": 696,
+      "overlap_rate_pct": 3.298,
+      "total_pairs": 21104,
+      "nodes_capped": 350,
+      "nodes_capped_pct": 23.7,
+      "avg_cap_ratio": 0.7031,
+      "worst_penetration": 1.361
+    }
+  ],
+  "phase1_sufficient": true
+}

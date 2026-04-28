@@ -1,0 +1,61 @@
+{
+  "n_images": 692,
+  "parameters": {
+    "positionScale": 1.0,
+    "baseExpansionRadius": 3.0,
+    "depthRadiusFactor": 0.65,
+    "minExpansionRadius": 0.3
+  },
+  "knn_overlap_k5": {
+    "mean": 0.6838150289017342,
+    "median": 0.8,
+    "min": 0.0,
+    "zero_overlap_count": 56,
+    "zero_overlap_pct": 8.09
+  },
+  "knn_overlap_k10": {
+    "mean": 0.655635838150289,
+    "median": 0.7,
+    "min": 0.0,
+    "zero_overlap_count": 25,
+    "zero_overlap_pct": 3.61
+  },
+  "cross_leaf_intrusion_k5": {
+    "before_count": 422,
+    "after_count": 947,
+    "total_pairs": 3460,
+    "before_pct": 12.2,
+    "after_pct": 27.37,
+    "delta_pp": 15.17
+  },
+  "cross_leaf_intrusion_k10": {
+    "before_count": 1375,
+    "after_count": 2189,
+    "total_pairs": 6920,
+    "before_pct": 19.87,
+    "after_pct": 31.63,
+    "delta_pp": 11.76
+  },
+  "cross_planet_intrusion_k5": {
+    "before_count": 0,
+    "after_count": 0,
+    "total_pairs": 3460,
+    "before_pct": 0.0,
+    "after_pct": 0.0
+  },
+  "cross_planet_intrusion_k10": {
+    "before_count": 0,
+    "after_count": 0,
+    "total_pairs": 6920,
+    "before_pct": 0.0,
+    "after_pct": 0.0
+  },
+  "intra_cross_preservation_k5": {
+    "intra_preserved": 2341,
+    "intra_total": 3038,
+    "intra_pct": 77.06,
+    "cross_preserved": 25,
+    "cross_total": 422,
+    "cross_pct": 5.92
+  }
+}

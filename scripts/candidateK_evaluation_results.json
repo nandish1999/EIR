@@ -1,0 +1,63 @@
+{
+  "n_images": 692,
+  "parameters": {
+    "positionScale": 1.0,
+    "baseExpansionRadius": 3.0,
+    "depthRadiusFactor": 0.65,
+    "minExpansionRadius": 0.3,
+    "planetScale": 5.0
+  },
+  "method": "Candidate K \u2014 Global Anchor + Uniform Planet Scale",
+  "knn_overlap_k5": {
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "zero_overlap_count": 0,
+    "zero_overlap_pct": 0.0
+  },
+  "knn_overlap_k10": {
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "zero_overlap_count": 0,
+    "zero_overlap_pct": 0.0
+  },
+  "cross_leaf_intrusion_k5": {
+    "before_count": 422,
+    "after_count": 422,
+    "total_pairs": 3460,
+    "before_pct": 12.2,
+    "after_pct": 12.2,
+    "delta_pp": 0.0
+  },
+  "cross_leaf_intrusion_k10": {
+    "before_count": 1375,
+    "after_count": 1375,
+    "total_pairs": 6920,
+    "before_pct": 19.87,
+    "after_pct": 19.87,
+    "delta_pp": 0.0
+  },
+  "cross_planet_intrusion_k5": {
+    "before_count": 0,
+    "after_count": 0,
+    "total_pairs": 3460,
+    "before_pct": 0.0,
+    "after_pct": 0.0
+  },
+  "cross_planet_intrusion_k10": {
+    "before_count": 0,
+    "after_count": 0,
+    "total_pairs": 6920,
+    "before_pct": 0.0,
+    "after_pct": 0.0
+  },
+  "intra_cross_preservation_k5": {
+    "intra_preserved": 3038,
+    "intra_total": 3038,
+    "intra_pct": 100.0,
+    "cross_preserved": 422,
+    "cross_total": 422,
+    "cross_pct": 100.0
+  }
+}
