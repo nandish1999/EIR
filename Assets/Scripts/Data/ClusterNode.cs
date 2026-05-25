@@ -79,6 +79,23 @@ public class ClusterNode
     /// </summary>
     public Vector3 Position;
 
+    /// <summary>
+    /// Cluster color parsed directly from CSV node rows.
+    /// </summary>
+    public Color RepresentativeColor = Color.white;
+
+    /// <summary>
+    /// Distance used when selecting nearest representative image.
+    /// </summary>
+    [System.NonSerialized]
+    public float RepresentativeDistance = float.MaxValue;
+
+    /// <summary>
+    /// True once a representative color has been assigned.
+    /// </summary>
+    [System.NonSerialized]
+    public bool HasRepresentativeColor = false;
+
     // -----------------------------------------------------------
     // Runtime expansion state (Phase 6 — not from CSV)
     // -----------------------------------------------------------

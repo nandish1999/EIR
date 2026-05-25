@@ -4,17 +4,6 @@ using UnityEngine;
 
 /// <summary>
 /// Parses the butterfly cluster CSV file into a list of CSVRow objects.
-/// 
-/// Handles:
-///   - Header row (skipped)
-///   - Windows line endings (\r\n)
-///   - Empty trailing lines
-///   - Missing/empty optional fields (depth, node_id, image_id)
-///   - Basic validation with Debug.LogWarning for malformed rows
-///
-/// Usage:
-///   string csvText = File.ReadAllText(path);
-///   List<CSVRow> rows = CSVParser.Parse(csvText);
 /// </summary>
 public static class CSVParser
 {
@@ -30,21 +19,21 @@ public static class CSVParser
     // 6: x
     // 7: y
     // 8: z
-    // 9: image_id          (10-column format: unity_pruned_density_tree_3d.csv)
-    //  — OR —
-    // 9: r, 10: g, 11: b, 12: image_id  (13-column format: ..._colors.csv)
+    // 9: image_id
     //
-    // image_id is always the LAST column in either format.
+    // OR:
+    //
+    // 9: r
+    // 10: g
+    // 11: b
+    // 12: image_id
     // -----------------------------------------------------------
 
     private const int MIN_COLUMN_COUNT = 10;
 
     /// <summary>
     /// Parses raw CSV text into a list of CSVRow objects.
-    /// Skips the header row and any empty lines.
     /// </summary>
-    /// <param name="csvText">The full text content of the CSV file.</param>
-    /// <returns>List of parsed CSVRow objects (both node and image rows).</returns>
     public static List<CSVRow> Parse(string csvText)
     {
         var rows = new List<CSVRow>();
@@ -55,10 +44,8 @@ public static class CSVParser
             return rows;
         }
 
-        // Split into lines, handling both \r\n and \n
         string[] lines = csvText.Split('\n');
 
-        // Track statistics for validation summary
         int nodeCount = 0;
         int imageCount = 0;
         int skippedCount = 0;
@@ -66,34 +53,28 @@ public static class CSVParser
 
         for (int i = 0; i < lines.Length; i++)
         {
-            // Strip carriage returns (Windows line endings)
             string line = lines[i].Trim('\r').Trim();
 
-            // Skip empty lines
             if (string.IsNullOrEmpty(line))
                 continue;
 
-            // Skip header row (first non-empty line starting with "type")
+            // Skip header
             if (i == 0 && line.StartsWith("type"))
             {
-                // Validate that the header has the expected columns
-                string[] headerCols = line.Split(',');
-                if (headerCols.Length < MIN_COLUMN_COUNT)
-                {
-                    Debug.LogWarning($"[CSVParser] Header has {headerCols.Length} columns, expected at least {MIN_COLUMN_COUNT}. " +
-                                     $"Header: {line}");
-                }
                 skippedCount++;
                 continue;
             }
 
-            // Parse the data row
-            CSVRow row = ParseRow(line, i + 1); // i+1 for 1-based line numbers
+            CSVRow row = ParseRow(line, i + 1);
+
             if (row != null)
             {
                 rows.Add(row);
-                if (row.IsNode) nodeCount++;
-                else if (row.IsImage) imageCount++;
+
+                if (row.IsNode)
+                    nodeCount++;
+                else if (row.IsImage)
+                    imageCount++;
             }
             else
             {
@@ -101,7 +82,6 @@ public static class CSVParser
             }
         }
 
-        // Log parsing summary
         Debug.Log($"[CSVParser] Parsing complete: {rows.Count} data rows " +
                   $"({nodeCount} nodes, {imageCount} images). " +
                   $"Skipped: {skippedCount}. Errors: {errorCount}.");
@@ -111,7 +91,6 @@ public static class CSVParser
 
     /// <summary>
     /// Parses a single CSV line into a CSVRow object.
-    /// Returns null if the line is malformed.
     /// </summary>
     private static CSVRow ParseRow(string line, int lineNumber)
     {
@@ -120,8 +99,7 @@ public static class CSVParser
         // Validate minimum column count
         if (fields.Length < MIN_COLUMN_COUNT)
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Expected at least {MIN_COLUMN_COUNT} fields, " +
-                             $"got {fields.Length}. Skipping. Content: \"{line}\"");
+            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Expected at least {MIN_COLUMN_COUNT} fields.");
             return null;
         }
 
@@ -133,98 +111,145 @@ public static class CSVParser
 
         string type = fields[0];
 
-        // Validate type field
+        // Validate type
         if (type != "node" && type != "image")
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Unknown type \"{type}\". Skipping.");
+            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Unknown type \"{type}\".");
             return null;
         }
 
-        // Validate required fields
+        // Parent ID
         string parentId = fields[2];
+
         if (string.IsNullOrEmpty(parentId))
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Missing parent_id. Skipping.");
+            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Missing parent_id.");
             return null;
         }
 
-        // Parse planet_id (required, integer)
+        // Planet index
         if (!int.TryParse(fields[3], out int planetIndex))
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid planet_id \"{fields[3]}\". Skipping.");
+            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid planet_id.");
             return null;
         }
 
-        // Parse depth (optional — only set for planet-level nodes)
-        int depth = -1; // -1 means "not provided"
+        // Depth
+        int depth = -1;
+
         if (!string.IsNullOrEmpty(fields[4]))
         {
-            if (float.TryParse(fields[4], System.Globalization.NumberStyles.Float,
-                               System.Globalization.CultureInfo.InvariantCulture, out float depthFloat))
+            if (float.TryParse(
+                fields[4],
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture,
+                out float depthFloat))
             {
                 depth = Mathf.RoundToInt(depthFloat);
             }
-            else
-            {
-                Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid depth \"{fields[4]}\". Using -1.");
-            }
         }
 
-        // Parse size (required, integer)
+        // Size
         int size = 0;
+
         if (!string.IsNullOrEmpty(fields[5]))
         {
-            if (!int.TryParse(fields[5], out size))
-            {
-                Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid size \"{fields[5]}\". Using 0.");
-                size = 0;
-            }
+            int.TryParse(fields[5], out size);
         }
 
-        // Parse x, y, z coordinates (required, float)
-        if (!float.TryParse(fields[6], System.Globalization.NumberStyles.Float,
-                            System.Globalization.CultureInfo.InvariantCulture, out float x))
+        // Coordinates
+        float x = 0f;
+        float y = 0f;
+        float z = 0f;
+
+        float.TryParse(
+            fields[6],
+            System.Globalization.NumberStyles.Float,
+            System.Globalization.CultureInfo.InvariantCulture,
+            out x);
+
+        float.TryParse(
+            fields[7],
+            System.Globalization.NumberStyles.Float,
+            System.Globalization.CultureInfo.InvariantCulture,
+            out y);
+
+        float.TryParse(
+            fields[8],
+            System.Globalization.NumberStyles.Float,
+            System.Globalization.CultureInfo.InvariantCulture,
+            out z);
+
+        // -----------------------------------------------------------
+        // RGB parsing (for *_colors.csv)
+        // -----------------------------------------------------------
+
+        float r = 1f;
+        float g = 1f;
+        float b = 1f;
+
+        if (fields.Length >= 13)
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid x \"{fields[6]}\". Using 0.");
-            x = 0f;
-        }
-        if (!float.TryParse(fields[7], System.Globalization.NumberStyles.Float,
-                            System.Globalization.CultureInfo.InvariantCulture, out float y))
-        {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid y \"{fields[7]}\". Using 0.");
-            y = 0f;
-        }
-        if (!float.TryParse(fields[8], System.Globalization.NumberStyles.Float,
-                            System.Globalization.CultureInfo.InvariantCulture, out float z))
-        {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Invalid z \"{fields[8]}\". Using 0.");
-            z = 0f;
+            float.TryParse(
+                fields[9],
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture,
+                out r);
+
+            float.TryParse(
+                fields[10],
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture,
+                out g);
+
+            float.TryParse(
+                fields[11],
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture,
+                out b);
         }
 
-        // Build the CSVRow
+        // -----------------------------------------------------------
+        // Build CSVRow
+        // -----------------------------------------------------------
+
         CSVRow row = new CSVRow
         {
             Type = type,
-            NodeId = fields[1],       // empty string for image rows
+
+            NodeId = fields[1],
+
             ParentId = parentId,
+
             PlanetIndex = planetIndex,
+
             Depth = depth,
+
             Size = size,
+
             X = x,
             Y = y,
             Z = z,
-            ImageId = fields[fields.Length - 1]  // always the last column (index 9 or 12)
+
+            // RGB values
+            R = r,
+            G = g,
+            B = b,
+
+            // image filename is always last column
+            ImageId = fields[fields.Length - 1]
         };
 
-        // Type-specific validation
+        // Validation
         if (row.IsNode && string.IsNullOrEmpty(row.NodeId))
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Node row has empty node_id. Skipping.");
+            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Empty node_id.");
             return null;
         }
+
         if (row.IsImage && string.IsNullOrEmpty(row.ImageId))
         {
-            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Image row has empty image_id. Skipping.");
+            Debug.LogWarning($"[CSVParser] Line {lineNumber}: Empty image_id.");
             return null;
         }
 
@@ -232,13 +257,8 @@ public static class CSVParser
     }
 
     /// <summary>
-    /// Convenience method: loads and parses a CSV file from disk.
-    /// Uses Application.streamingAssetsPath as the base path.
+    /// Loads and parses a CSV file from StreamingAssets.
     /// </summary>
-    /// <param name="relativePath">
-    /// Path relative to StreamingAssets, e.g. "Data/unity_pruned_density_tree_3d.csv"
-    /// </param>
-    /// <returns>List of parsed CSVRow objects, or empty list on failure.</returns>
     public static List<CSVRow> ParseFromStreamingAssets(string relativePath)
     {
         string fullPath = Path.Combine(Application.streamingAssetsPath, relativePath);
@@ -250,7 +270,9 @@ public static class CSVParser
         }
 
         Debug.Log($"[CSVParser] Loading CSV from: {fullPath}");
+
         string csvText = File.ReadAllText(fullPath);
+
         return Parse(csvText);
     }
 }

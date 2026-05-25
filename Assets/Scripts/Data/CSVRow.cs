@@ -56,6 +56,11 @@ public class CSVRow
     /// <summary>UMAP 3D z-coordinate.</summary>
     public float Z;
 
+    /// <summary>Representative image color (parsed from CSV).</summary>
+    public float R;
+    public float G;
+    public float B;
+
     /// <summary>
     /// Butterfly image filename (e.g. "10720.jpg").
     /// Empty for node rows.

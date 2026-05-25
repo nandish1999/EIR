@@ -59,7 +59,10 @@ public static class TreeBuilder
                 PlanetIndex = row.PlanetIndex,
                 Size = row.Size,
                 Position = row.GetPosition(),
-                Depth = -1 // will be computed in Pass 4
+                Depth = -1,
+
+                // Color comes directly from node CSV row
+                RepresentativeColor = new Color(row.R, row.G, row.B, 1f)
             };
 
             tree.NodeLookup[node.NodeId] = node;
@@ -116,7 +119,8 @@ public static class TreeBuilder
                 ImageFileName = row.ImageId,
                 ParentNodeId = row.ParentId,
                 PlanetIndex = row.PlanetIndex,
-                Position = row.GetPosition()
+                Position = row.GetPosition(),
+         
             };
 
             if (tree.NodeLookup.TryGetValue(row.ParentId, out ClusterNode parentNode))
@@ -124,6 +128,7 @@ public static class TreeBuilder
                 image.ParentNode = parentNode;
                 parentNode.Images.Add(image);
 
+          
                 // Check if this image is attached to a non-leaf node
                 // (shouldn't happen based on CSV analysis, but validate anyway)
                 if (!parentNode.IsLeaf)
@@ -149,6 +154,8 @@ public static class TreeBuilder
 
         Debug.Log($"[TreeBuilder] Pass 3: Attached {tree.AllImages.Count} images. " +
                   $"Orphan images: {orphanImageCount}. On non-leaf: {imagesOnNonLeaf}.");
+
+
 
         // -----------------------------------------------------------
         // Pass 4: Compute depth for every node (recursive from planets)
@@ -199,7 +206,7 @@ public static class TreeBuilder
         {
             ComputeDepthRecursive(child, depth + 1, ref maxDepth);
         }
-    }
+    } 
 
     /// <summary>
     /// Runs post-build validation checks and logs a comprehensive summary.

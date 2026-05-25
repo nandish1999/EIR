@@ -1,0 +1,258 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\EIR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\treebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\treebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\visuals\\imagevisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\visuals\\imagevisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\clusternode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\clusternode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\imageitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\imageitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\managers\\visualizationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\visualizationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\visuals\\planetvisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\visuals\\planetvisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\csvrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\csvrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\ui\\imagegalleryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\imagegalleryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\managers\\interactionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\interactionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\managers\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\managers\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|c:\\users\\admin\\eir\\assets\\scripts\\data\\clustertree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C684C3E9-E1CE-D53C-7D9A-F8E8F14ED18D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\clustertree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ImageItem.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ImageItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\ImageItem.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ImageItem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\ImageItem.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwDUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:22:18.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TreeBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\TreeBuilder.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\TreeBuilder.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\TreeBuilder.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\TreeBuilder.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAQwHUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:23:00.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClusterNode.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ClusterNode.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\ClusterNode.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ClusterNode.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\ClusterNode.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAkwFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:20:49.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VisualizationManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\VisualizationManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\VisualizationManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\VisualizationManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\VisualizationManager.cs",
+              "ViewState": "AgIAALMEAAAAAAAAAAAUwMkEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:25:11.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ImageLoader.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ImageLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\ImageLoader.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ImageLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\ImageLoader.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAAAHkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:22:37.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ImageVisual.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Visuals\\ImageVisual.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Visuals\\ImageVisual.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Visuals\\ImageVisual.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Visuals\\ImageVisual.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:26:31.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlanetVisual.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Visuals\\PlanetVisual.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Visuals\\PlanetVisual.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Visuals\\PlanetVisual.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Visuals\\PlanetVisual.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwIYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:26:52.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CSVParser.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\CSVParser.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\CSVParser.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\CSVParser.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\CSVParser.cs",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAcwA4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:21:44.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CSVRow.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\CSVRow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\CSVRow.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\CSVRow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\CSVRow.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAwDsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:22:01.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ImageGalleryUI.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\UI\\ImageGalleryUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\ImageGalleryUI.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\UI\\ImageGalleryUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\ImageGalleryUI.cs",
+              "ViewState": "AgIAAAoBAAAAAAAAAAAUwCABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:26:02.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "InteractionManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\InteractionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\InteractionManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\InteractionManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\InteractionManager.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAUwHgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:24:57.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DataManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\DataManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\DataManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\DataManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\DataManager.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAcwEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:24:38.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CameraController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\CameraController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\CameraController.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Managers\\CameraController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\CameraController.cs",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAUwA4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:24:26.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ClusterTree.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ClusterTree.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\ClusterTree.cs",
+              "ToolTip": "C:\\Users\\Admin\\EIR\\Assets\\Scripts\\Data\\ClusterTree.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\ClusterTree.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAUwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T21:21:23.319Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

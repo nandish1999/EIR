@@ -889,15 +889,7 @@ public class VisualizationManager : MonoBehaviour
     /// </summary>
     private Color GetNodeColor(ClusterNode node)
     {
-        Color baseColor = GetPlanetColor(node.PlanetIndex);
-
-        if (tintByDepth && node.Depth > 0)
-        {
-            float lightenAmount = node.Depth * 0.06f;
-            baseColor = Color.Lerp(baseColor, Color.white, Mathf.Clamp01(lightenAmount));
-        }
-
-        return baseColor;
+        return node.RepresentativeColor;
     }
 
     /// <summary>
