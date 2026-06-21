@@ -1,25 +1,7 @@
 using UnityEngine;
 
-/// <summary>
-/// Simple camera controller for navigating the 3D visualization.
-///
-/// Controls:
-///   Arrow keys — move forward/back/left/right
-///   Q / E      — move down / up
-///   Scroll     — zoom in / out (move forward/back)
-///   Mouse      — look around (always active, cursor confined)
-///
-/// Also supports smooth auto-transitions via FocusOnRegion().
-/// During a transition, user input is suppressed until the camera
-/// reaches its target. After arriving, control is fully restored.
-///
-/// Attach to the Main Camera.
-/// </summary>
 public class CameraController : MonoBehaviour
 {
-    // -----------------------------------------------------------
-    // Inspector settings
-    // -----------------------------------------------------------
 
     [Header("Movement")]
     [Tooltip("Base movement speed (units per second).")]
@@ -50,40 +32,36 @@ public class CameraController : MonoBehaviour
     [Tooltip("Minimum camera distance to prevent clipping inside small clusters.")]
     public float minFocusDistance = 1.5f;
 
-    // -----------------------------------------------------------
-    // Runtime state
-    // -----------------------------------------------------------
-
     private float rotationX = 0f;
     private float rotationY = 0f;
 
-    // --- Transition state ---
+
     private bool isTransitioning = false;
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private Vector3 transitionVelocity = Vector3.zero;
     private float transitionElapsed = 0f;
-    private const float MaxTransitionTime = 5f; // Safety timeout
+    private const float MaxTransitionTime = 5f;
 
     void Start()
     {
-        // Initialize rotation from current camera orientation
+
         Vector3 currentEuler = transform.eulerAngles;
         rotationX = currentEuler.y;
         rotationY = currentEuler.x;
 
-        // Normalize Y rotation to avoid sudden jump
+
         if (rotationY > 180f)
             rotationY -= 360f;
 
-        // Keep cursor visible and confined to game window for click interaction
+
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
 
     void Update()
     {
-        // During a transition, only run the smooth move — suppress all user input
+
         if (isTransitioning)
         {
             HandleTransition();
@@ -94,10 +72,6 @@ public class CameraController : MonoBehaviour
         HandleZoom();
         HandleLook();
     }
-
-    // -----------------------------------------------------------
-    // Movement (Arrow keys + Q/E)
-    // -----------------------------------------------------------
 
     private void HandleMovement()
     {
@@ -120,10 +94,6 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    // -----------------------------------------------------------
-    // Zoom (scroll wheel)
-    // -----------------------------------------------------------
-
     private void HandleZoom()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -132,10 +102,6 @@ public class CameraController : MonoBehaviour
             transform.position += transform.forward * scroll * zoomSpeed;
         }
     }
-
-    // -----------------------------------------------------------
-    // Look (mouse free-look, always active)
-    // -----------------------------------------------------------
 
     private void HandleLook()
     {
@@ -149,31 +115,17 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(rotationY, rotationX, 0f);
     }
 
-    // -----------------------------------------------------------
-    // Auto-transition (smooth focus on expand)
-    // -----------------------------------------------------------
-
-    /// <summary>
-    /// Initiates a smooth camera transition to frame a region defined by
-    /// a centroid point and a maximum extent (radius from centroid to farthest child).
-    /// The camera preserves its current viewing direction and moves to a distance
-    /// where the entire region fits comfortably in view.
-    /// Called by VisualizationManager after expanding a node.
-    /// </summary>
     public void FocusOnRegion(Vector3 centroid, float extent)
     {
         Camera cam = GetComponent<Camera>();
         if (cam == null) return;
 
-        // Compute required distance to frame the extent using FOV-based frustum math
+
         float fovRad = cam.fieldOfView * Mathf.Deg2Rad;
         float requiredDistance = extent / Mathf.Tan(fovRad / 2f);
         requiredDistance *= framingPadding;
         requiredDistance = Mathf.Max(requiredDistance, minFocusDistance);
 
-        // Compute view direction from current camera position toward centroid.
-        // Guard: if camera is already at or very near the centroid, use the
-        // camera's current forward direction instead to avoid a zero-length vector.
         Vector3 toCentroid = centroid - transform.position;
         Vector3 viewDirection;
         if (toCentroid.sqrMagnitude < 0.001f)
@@ -181,13 +133,13 @@ public class CameraController : MonoBehaviour
         else
             viewDirection = toCentroid.normalized;
 
-        // Target position: place camera at requiredDistance along the backward direction
+
         targetPosition = centroid - viewDirection * requiredDistance;
 
-        // Target rotation: look directly at the centroid
+
         targetRotation = Quaternion.LookRotation(viewDirection);
 
-        // Reset velocity and timer for the new transition
+
         transitionVelocity = Vector3.zero;
         transitionElapsed = 0f;
         isTransitioning = true;
@@ -196,16 +148,11 @@ public class CameraController : MonoBehaviour
                   $"(centroid={centroid}, extent={extent:F2}, distance={requiredDistance:F2}).");
     }
 
-    /// <summary>
-    /// Runs each frame during an active transition.
-    /// Smoothly moves position via SmoothDamp and rotation via Slerp.
-    /// When close enough to target, snaps to final pose and restores user control.
-    /// </summary>
     private void HandleTransition()
     {
         transitionElapsed += Time.deltaTime;
 
-        // Safety timeout: if transition takes too long, snap to target
+
         if (transitionElapsed >= MaxTransitionTime)
         {
             FinishTransition();
@@ -213,20 +160,20 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        // Smooth position
+
         transform.position = Vector3.SmoothDamp(
             transform.position,
             targetPosition,
             ref transitionVelocity,
             transitionSmoothTime);
 
-        // Smooth rotation
+
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
             targetRotation,
             transitionRotationSpeed);
 
-        // Check if close enough to snap and finish
+
         float positionError = Vector3.Distance(transform.position, targetPosition);
         float rotationError = Quaternion.Angle(transform.rotation, targetRotation);
 
@@ -237,12 +184,6 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Cancels an in-progress camera transition immediately.
-    /// The camera stays at its current position/rotation and user control resumes.
-    /// Safe to call when no transition is active (no-op).
-    /// Called by VisualizationManager on collapse (Escape).
-    /// </summary>
     public void CancelTransition()
     {
         if (!isTransitioning) return;
@@ -251,14 +192,10 @@ public class CameraController : MonoBehaviour
         Debug.Log("[CameraController] ❌ Transition cancelled — user control restored.");
     }
 
-    /// <summary>
-    /// Shared completion logic: snaps to current pose, syncs rotation
-    /// variables, and sets isTransitioning = false.
-    /// </summary>
     private void FinishTransition()
     {
-        // Sync internal rotation variables from the current rotation
-        // so there is no snap when user resumes mouse control
+
+
         Vector3 finalEuler = transform.eulerAngles;
         rotationX = finalEuler.y;
         rotationY = finalEuler.x;

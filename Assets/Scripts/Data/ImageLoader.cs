@@ -4,22 +4,17 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
-/// <summary>
-/// Loads landscape images from StreamingAssets/Images/ at runtime.
-/// Uses UnityWebRequestTexture for cross-platform compatibility.
-/// Includes a simple in-memory cache to avoid reloading the same image.
-/// </summary>
 public class ImageLoader : MonoBehaviour
 {
-    /// <summary>Singleton instance for easy access.</summary>
+
     public static ImageLoader Instance { get; private set; }
 
-    /// <summary>Cache of already-loaded textures, keyed by filename.</summary>
+
     private Dictionary<string, Texture2D> textureCache = new Dictionary<string, Texture2D>();
 
     void Awake()
     {
-        // Simple singleton
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -28,15 +23,9 @@ public class ImageLoader : MonoBehaviour
         Instance = this;
     }
 
-    /// <summary>
-    /// Loads a single image by filename. Calls onLoaded with the texture
-    /// when done (or null if the file doesn't exist).
-    /// </summary>
-    /// <param name="fileName">Image filename, e.g. "10720.jpg"</param>
-    /// <param name="onLoaded">Callback with the loaded Texture2D (or null on failure).</param>
     public void LoadImage(string fileName, System.Action<Texture2D> onLoaded)
     {
-        // Check cache first
+
         if (textureCache.TryGetValue(fileName, out Texture2D cached))
         {
             onLoaded?.Invoke(cached);
@@ -46,10 +35,6 @@ public class ImageLoader : MonoBehaviour
         StartCoroutine(LoadImageCoroutine(fileName, onLoaded));
     }
 
-    /// <summary>
-    /// Loads multiple images sequentially, calling onEachLoaded for each.
-    /// Calls onAllDone when all are complete.
-    /// </summary>
     public void LoadImages(List<ImageItem> images,
                            System.Action<ImageItem, Texture2D> onEachLoaded,
                            System.Action onAllDone = null)
@@ -61,7 +46,7 @@ public class ImageLoader : MonoBehaviour
     {
         string path = Path.Combine(Application.streamingAssetsPath, "Images", fileName);
 
-        // Use file:// protocol for local files
+
         string url = "file://" + path;
 
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
@@ -88,7 +73,7 @@ public class ImageLoader : MonoBehaviour
     {
         foreach (var image in images)
         {
-            // Check cache
+
             if (textureCache.TryGetValue(image.ImageFileName, out Texture2D cached))
             {
                 onEachLoaded?.Invoke(image, cached);
@@ -119,7 +104,7 @@ public class ImageLoader : MonoBehaviour
         onAllDone?.Invoke();
     }
 
-    /// <summary>Clears the texture cache and frees memory.</summary>
+
     public void ClearCache()
     {
         foreach (var tex in textureCache.Values)

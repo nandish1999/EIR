@@ -1,25 +1,13 @@
 using UnityEngine;
 
-/// <summary>
-/// Phase 0 data pipeline orchestrator.
-/// Loads the CSV, builds the cluster tree, and logs validation results.
-/// Attach this to an empty GameObject named "Managers" in your scene.
-/// </summary>
 public class DataManager : MonoBehaviour
 {
     [Header("CSV Settings")]
     [Tooltip("Path to the CSV file, relative to StreamingAssets/")]
     public string csvRelativePath = "Data/unity_pruned_density_tree_3d_colors.csv";
 
-    /// <summary>
-    /// The fully constructed cluster tree.
-    /// Other scripts will use this later.
-    /// </summary>
     public ClusterTree Tree { get; private set; }
 
-    /// <summary>
-    /// True after the tree has been successfully built.
-    /// </summary>
     public bool IsReady { get; private set; }
 
     void Awake()

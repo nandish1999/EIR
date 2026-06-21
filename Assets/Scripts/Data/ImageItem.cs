@@ -1,14 +1,8 @@
 using UnityEngine;
 
-/// <summary>
-/// Represents a single butterfly image attached to a leaf cluster node.
-/// </summary>
 [System.Serializable]
 public class ImageItem
 {
-    // -----------------------------------------------------------
-    // Identity
-    // -----------------------------------------------------------
 
     public string ImageFileName;
 
@@ -16,27 +10,11 @@ public class ImageItem
 
     public int PlanetIndex;
 
-    // -----------------------------------------------------------
-    // Spatial data
-    // -----------------------------------------------------------
-
     public Vector3 Position;
-
-    // -----------------------------------------------------------
-    // Representative image color
-    // -----------------------------------------------------------
 
     public Color ImageColor;
 
-    // -----------------------------------------------------------
-    // Runtime reference
-    // -----------------------------------------------------------
-
     public ClusterNode ParentNode;
-
-    // -----------------------------------------------------------
-    // Helpers
-    // -----------------------------------------------------------
 
     public Vector3 GetLocalPosition()
     {

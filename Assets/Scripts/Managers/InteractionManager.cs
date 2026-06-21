@@ -1,61 +1,42 @@
 using UnityEngine;
 
-/// <summary>
-/// Handles user input for the in-place expansion visualization.
-///
-/// - Left-click on a node sphere: toggle expand/collapse
-/// - Escape key: collapse the most recently expanded node
-/// - P key: toggle ghost planet overlay (semi-transparent faded parents)
-/// - L key: toggle ghost line overlay (only when P is ON)
-/// </summary>
 public class InteractionManager : MonoBehaviour
 {
-    // -----------------------------------------------------------
-    // Inspector-assigned references
-    // -----------------------------------------------------------
 
     [Header("References")]
     [Tooltip("The VisualizationManager that handles expand/collapse.")]
     public VisualizationManager visualizationManager;
 
-    // -----------------------------------------------------------
-    // Lifecycle
-    // -----------------------------------------------------------
-
     void Update()
     {
-        // --- Left mouse click ---
+
         if (Input.GetMouseButtonDown(0))
         {
             HandleClick();
         }
 
-        // --- Escape key ---
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             HandleEscape();
         }
 
-        // --- P key: toggle ghost planet overlay ---
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             visualizationManager.ToggleGhostPlanetOverlay();
         }
 
-        // --- L key: toggle ghost line overlay (only when P is ON) ---
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             visualizationManager.ToggleGhostLineOverlay();
         }
     }
 
-    // -----------------------------------------------------------
-    // Click handling
-    // -----------------------------------------------------------
-
     private void HandleClick()
     {
-        // Skip expand/collapse while right-mouse is held (camera orbit)
+
         if (Input.GetMouseButton(1)) return;
 
         Camera cam = Camera.main;
@@ -70,8 +51,6 @@ public class InteractionManager : MonoBehaviour
 
             ClusterNode clickedNode = visual.Node;
 
-            // Expanded parents are not clickable — do nothing
-            // (collider is also disabled, so this is a safety check)
             if (clickedNode.IsExpanded)
             {
                 return;
@@ -88,7 +67,7 @@ public class InteractionManager : MonoBehaviour
                 {
                     Debug.Log($"[InteractionManager] Pruned leaf: \"{clickedNode.NodeId}\" " +
                               $"— no images in CSV.");
-                    return; // Nothing to expand
+                    return;
                 }
             }
             else
@@ -100,10 +79,6 @@ public class InteractionManager : MonoBehaviour
             visualizationManager.ToggleNode(clickedNode);
         }
     }
-
-    // -----------------------------------------------------------
-    // Escape handling
-    // -----------------------------------------------------------
 
     private void HandleEscape()
     {
